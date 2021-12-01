@@ -1,10 +1,10 @@
-package com.diferoan.cilo4;
+package com.as;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Cilo4ApplicationTests {
+class DemoApplicationTests {
 
 	@Test
 	void contextLoads() {
