@@ -1,6 +1,10 @@
-package com.cuatroa.retotres.repository.crud;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.as.repository.crud;
 
-import com.cuatroa.retotres.model.Order;
+import com.as.model.Order;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.data.mongodb.repository.MongoRepository;

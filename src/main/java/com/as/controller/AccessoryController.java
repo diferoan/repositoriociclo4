@@ -22,8 +22,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  * @author desarrolloextremo
  */
 @RestController
-@RequestMapping("/api/accessory")
 @CrossOrigin("*")
+@RequestMapping("/api/accessory")
 public class AccessoryController {
 
     @Autowired
@@ -56,4 +56,15 @@ public class AccessoryController {
     public boolean delete(@PathVariable("reference") String reference) {
         return servicio.delete(reference);
     }
+    
+    @GetMapping("/price/{price}")
+    public List<Accessory> productsByPrice(@PathVariable("price") double precio){
+        return servicio.productsByPrice(precio);
+    }
+    
+    //Reto 5
+    @GetMapping("/description/{description}")
+    public List<Accessory> findByDescriptionLike(@PathVariable("description") String description){
+	return servicio.findByDescriptionLike(description);
+    }    
 }

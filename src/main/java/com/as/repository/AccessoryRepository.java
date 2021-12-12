@@ -36,4 +36,13 @@ public class AccessoryRepository {
     public void delete(Accessory accesory) {
         crudInterface.delete(accesory);
     }
+    
+    //Reto 5
+    public List<Accessory> productsByPrice(double precio){
+        return crudInterface.findByPriceLessThanEqual(precio);
+    }
+    //Reto 5
+    public List<Accessory> findByDescriptionLike(String description){
+	return crudInterface.findByDescriptionLike(description);
+    }
 }

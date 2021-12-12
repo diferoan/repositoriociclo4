@@ -1,7 +1,7 @@
-package com.cuatroa.retotres.service;
+package com.as.service;
 
-import com.cuatroa.retotres.model.Order;
-import com.cuatroa.retotres.repository.OrderRepository;
+import com.as.model.Order;
+import com.as.repository.OrderRepository;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,16 +74,25 @@ public class OrderService {
         return aBoolean;
     }
 
-    //Ordenes de pedido asociadas a los asesores de una zona
+    //Reto 3 Ordenes de pedido asociadas a los asesores de una zona
     public List<Order> findByZone(String zona) {
         return orderRepository.findByZone(zona);
     }
-//
-//    public List<Order> ordersSalesManByDate(String dateStr, int id) {
-//        return orderRepository.ordersSalesManByDate(dateStr, id);
-//    }
-//    
-//    public List<Order> ordersSalesManByState(String state, Integer id) {
-//        return orderRepository.ordersSalesManByState(state, id);
-//    }
+    
+    //Reto 4 Listar ordenes de pedido de un asesor
+    public List<Order> ordersSalesManByID(Integer id) {
+       return orderRepository.ordersSalesManByID(id);
+    }
+    
+    //Reto 4 Listar ordenes de pedido por x estado y asesor
+    public List<Order> ordersSalesManByState(String state, Integer id) {
+        return orderRepository.ordersSalesManByState(state,id);
+    }
+    
+    //Reto 4: Ordenes de un asesor x Fecha
+    public List<Order> ordersSalesManByDate(String dateStr, Integer id){
+        return orderRepository.ordersSalesManByDate(dateStr, id);
+    }
+            
 }
+

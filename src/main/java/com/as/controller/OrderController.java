@@ -1,7 +1,7 @@
-package com.cuatroa.retotres.controller;
+package com.as.controller;
 
-import com.cuatroa.retotres.model.Order;
-import com.cuatroa.retotres.service.OrderService;
+import com.as.model.Order;
+import com.as.service.OrderService;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,16 +19,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  *
- * @author desaextremo
+ * @author desarrolloextremo
  */
 @RestController
 @RequestMapping("/api/order")
 @CrossOrigin("*")
 public class OrderController {
-
     @Autowired
     private OrderService orderService;
-
+    
     @GetMapping("/all")
     public List<Order> getAll() {
         return orderService.getAll();
@@ -58,8 +57,26 @@ public class OrderController {
     }
     
     //Reto 3:Ordenes de pedido asociadas a los asesores de una zona
-    @GetMapping("/zona/{zona}")
+    @GetMapping("/zona/{zona}")  
     public List<Order> findByZone(@PathVariable("zona") String zona) {
         return orderService.findByZone(zona);
+    }
+    
+    //Reto 4: Ordenes de un asesor
+    @GetMapping("/salesman/{id}")
+    public List<Order> ordersSalesManByID(@PathVariable("id") Integer id) {
+       return orderService.ordersSalesManByID(id);
+    }
+    
+    //Reto 4 Listar ordenes de pedido por x estado y asesor
+    @GetMapping("/state/{state}/{id}")
+    public List<Order> ordersSalesManByState(@PathVariable("state") String state, @PathVariable("id") Integer id) {
+        return orderService.ordersSalesManByState(state,id);
+    }
+    
+    //Reto 4: Ordenes de un asesor x Fecha
+    @GetMapping("/date/{date}/{id}")
+    public List<Order> ordersSalesManByDate(@PathVariable("date") String dateStr, @PathVariable("id") Integer id){
+        return orderService.ordersSalesManByDate(dateStr, id);
     }
 }
